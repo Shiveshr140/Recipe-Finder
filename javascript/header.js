@@ -23,6 +23,7 @@ function createHeaderContent() {
           <input class="search" placeholder="Start searching...." />
         </div>
       </nav>
+      
       `;
 }
 
