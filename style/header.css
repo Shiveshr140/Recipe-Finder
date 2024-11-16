@@ -1,0 +1,121 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+.body-home {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ****************** Header Styling ************************************** */
+
+.header-info {
+  position: relative;
+  background-color: #5022c3;
+  text-align: center;
+  padding: 1rem 1rem;
+}
+
+.header-info-hidden {
+  display: none;
+}
+
+.header-info p {
+  color: whitesmoke;
+}
+
+.header-info p a {
+  color: inherit;
+  font-size: 0.85em;
+}
+
+.header-info p a:hover {
+  color: rgb(190, 184, 184);
+}
+
+.header-info button {
+  position: absolute;
+  top: 13px;
+  right: 1rem;
+  font-size: 20px;
+  color: #f7f7f7;
+  cursor: pointer;
+  border: none;
+  background-color: #5022c3;
+  transition: background-color 0.3s ease-in;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+  padding-bottom: 2px;
+  border-radius: 40%;
+}
+
+.header-info button:hover {
+  background-color: rgb(26, 17, 17);
+}
+
+nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem 1rem 3rem;
+  box-shadow: 1px 1px;
+}
+
+.ingreedy {
+  font-family: "Pacifico", cursive;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-link:hover {
+  color: #5022c3;
+  text-shadow: 0 0 6px rgba(80, 34, 195, 0.3), 0 0 12px rgba(80, 34, 195, 0.3);
+}
+
+.nav-logo-cat-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dropdown select {
+  background-color: transparent;
+  outline: none; /* Remove the outline */
+  border: none; /* Remove the default border */
+  padding: 0.3rem;
+  border-radius: 10px; /* Optional: to match your design */
+  cursor: pointer;
+}
+
+.search {
+  width: 500px;
+  padding: 0.3rem 0.3rem;
+  outline: none;
+  border: 1.1px solid black;
+  border-radius: 10px;
+  background-color: #f7f7f7;
+  font-size: medium;
+}
+
+.search:focus {
+  border: 1.5px solid #5022c3 !important;
+}
+
+.search::placeholder {
+  color: grey;
+  opacity: 0.8;
+  font-weight: 200;
+  font-size: small;
+}
