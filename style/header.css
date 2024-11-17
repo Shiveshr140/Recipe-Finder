@@ -119,3 +119,40 @@ nav {
   color: inherit;
   text-decoration: none;
 }
+
+/* Modal window styling for nav links */
+
+.modal-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  bottom: 20%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: whitesmoke;
+  border: 0.2px solid black;
+  z-index: 1000;
+  padding: 0.5rem 1rem 1rem 1rem;
+  backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 80vh;
+  height: 600px;
+  width: 35%;
+  border-radius: 4px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.hidden {
+  display: none;
+}
