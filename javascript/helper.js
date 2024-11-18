@@ -15,3 +15,20 @@ async function categories(category) {
 // console.log(categories("popular"));
 
 //***************************************************************** Sidebar Recipes
+
+async function fetchRecipesByCuisine(cuisine) {
+  try {
+    const res = await fetch(`${url}&cuisine=${cuisine}`);
+    if (!res.ok) throw new Error(`Failed to fetch recipes: ${res.status}`);
+    const data = await res.json();
+    console.log(data);
+    return data.results;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+// // Example: Fetch Italian recipes
+// fetchRecipesByCuisine("Lunch Recipes").then((recipes) => {
+//   console.log("Italian Recipes:", recipes);
+// });

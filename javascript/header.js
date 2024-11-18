@@ -14,10 +14,10 @@ function createHeaderContent() {
           <div class="dropdown">
               <select>
                   <option value="" selected disabled>Categories</option>
-                  <option value="popular">Popular</option>
-                  <option value="cheap">Cheap</option>
-                  <option value="vegetarian">Vegetarian</option>
-                  <option value="gluten free">Gluten free</option>
+                  <option value="popular">💗 Popular</option>
+                  <option value="cheap">💲Cheap</option>
+                  <option value="vegetarian">🍅 Vegetarian</option>
+                  <option value="gluten free">🥗 Gluten free</option>
               </select>
           </div>
           <input class="search" placeholder="Start searching...." />

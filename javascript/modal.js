@@ -93,7 +93,7 @@ function healthyRecipesShow() {
   let innerContent = ``;
   for (let item of healthyRecipesArray) {
     innerContent += `
-    <p> 👉 <a href="#"> ${item} </a>
+    <p> 👉 <a href="#" class="recipe-link"> ${item} </a>
     `;
   }
   healthyRecipesDiv.innerHTML = innerContent;

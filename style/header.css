@@ -227,27 +227,33 @@ nav {
 
 .modal-card p {
   font-size: 1em;
-  border-bottom: 0.5px solid black;
-  padding: 0.5rem 1rem 1rem 1rem;
+  padding: 0.8rem 1rem 0.8rem 1rem;
   margin-left: -1rem;
   margin-right: -1rem;
+}
+
+.modal-card p:not(:last-child) {
+  font-size: 1em;
+  border-bottom: 0.5px solid black;
 }
 
 .modal-card p a {
   color: #002366;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .modal-card p a:hover {
-  color: #001741;
+  /* color: #001741; */
+  color: #ff5733;
   text-decoration: underline;
 }
 
-/* modal-window/Ingredients */
+/*************************************** modal-window/Ingredients *************************/
 
 .ingredients-links {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-/* modal-window/Healthy-reccipes */
+/***************************************** modal-window/Healthy-recipes **********************/
