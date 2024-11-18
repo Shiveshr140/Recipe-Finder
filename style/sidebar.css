@@ -4,7 +4,9 @@
   gap: 1rem;
   padding: 0.7rem 1rem;
   border-right: 1px solid grey;
-  overflow: scroll;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+  background: linear-gradient(to bottom, #fff5e6, #ffd700);
 }
 
 .sidebar p {
@@ -22,18 +24,20 @@
 }
 
 .sidebar-link p {
-  font-size: 0.9em;
+  font-size: 1em;
   color: rgb(41, 40, 40);
+  font-weight: 700;
   /* opacity: 1; */
 }
 
 .sidebar-link p:hover {
-  color: black;
+  /* color: black; */
+  color: #5f370e;
 }
 
-.sidebar-link p.visited-p {
+/* .sidebar-link p.visited-p {
   color: brown;
-}
+} */
 
 .logo {
   width: 25px;
@@ -51,6 +55,11 @@
 }
 
 .sidebar-recipes-list li a {
+  font-size: 0.9em;
   text-decoration: none;
   color: inherit;
+}
+
+.sidebar-recipes-list li a:hover {
+  color: #5f370e;
 }

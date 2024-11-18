@@ -23,7 +23,7 @@ function createHeaderContent() {
           <input class="search" placeholder="Start searching...." />
         </div>
       <div class="nav-links"> 
-        <a href="#" class="nav-healthy-recipies nav-link"> Healthy recipies </a>
+        <a href="#" class="nav-healthy-recipies nav-link"> Healthy recipes </a>
         <a href="#" class="nav-seasonal nav-link"> Seasonal </a>
         <a href="#" class="nav-ingredients nav-link"> Ingredients </a>
       </div>        

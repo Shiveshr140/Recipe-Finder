@@ -26,16 +26,9 @@ createSidebarContent();
 
 const sidebarRecipe = document.querySelector(".sidebar-recipes");
 
-sidebarRecipe.addEventListener("click", (e) => {
-  // we need to prevent the refreshing the page otherwise list will disappear and prevent the event to propagate in bublephase otherwise it will make list to disappear again
-  e.preventDefault();
-  e.stopPropagation();
-  // Check if the dropdown already exists
-  let recipeDiv = document.querySelector(".dropdown-content");
-  if (!recipeDiv) {
-    recipeDiv = document.createElement("div");
-    recipeDiv.classList.add("dropdown-content");
-    recipeDiv.innerHTML = `
+recipeDiv = document.createElement("div");
+recipeDiv.classList.add("dropdown-content");
+recipeDiv.innerHTML = `
       <ul class="sidebar-recipes-list"> 
       <li> <a href="#">Breakfast Recipes</a> </li> 
       <li> <a href="#">Lunch Recipes</a> </li>
@@ -53,8 +46,37 @@ sidebarRecipe.addEventListener("click", (e) => {
       <li> <a href="#">American</a> </li>
       </ul>
     `;
-    sidebarRecipe.appendChild(recipeDiv);
-  } else {
-    sidebarRecipe.removeChild(recipeDiv);
-  }
-});
+sidebarRecipe.appendChild(recipeDiv);
+
+// sidebarRecipe.addEventListener("click", (e) => {
+//   // we need to prevent the refreshing the page otherwise list will disappear and prevent the event to propagate in bublephase otherwise it will make list to disappear again
+//   e.preventDefault();
+//   e.stopPropagation();
+//   // Check if the dropdown already exists
+//   let recipeDiv = document.querySelector(".dropdown-content");
+//   if (!recipeDiv) {
+//     recipeDiv = document.createElement("div");
+//     recipeDiv.classList.add("dropdown-content");
+//     recipeDiv.innerHTML = `
+//       <ul class="sidebar-recipes-list">
+//       <li> <a href="#">Breakfast Recipes</a> </li>
+//       <li> <a href="#">Lunch Recipes</a> </li>
+//       <li> <a href="#">Dinner Recipes</a> </li>
+//       <li> <a href="#">Desserts</a> </li>
+//       <li> <a href="#">Snacks</a> </li>
+//       <li> <a href="#">Low-Carb Recipes</a> </li>
+//       <li> <a href="#">Keto Recipes</a> </li>
+//       <li> <a href="#">Italian</a> </li>
+//       <li> <a href="#">Mexican</a> </li>
+//       <li> <a href="#">Chinese</a> </li>
+//       <li> <a href="#">Indian</a> </li>
+//       <li> <a href="#">Japanese</a> </li>
+//       <li> <a href="#">Mediterranean</a> </li>
+//       <li> <a href="#">American</a> </li>
+//       </ul>
+//     `;
+//     sidebarRecipe.appendChild(recipeDiv);
+//   } else {
+//     sidebarRecipe.removeChild(recipeDiv);
+//   }
+// });

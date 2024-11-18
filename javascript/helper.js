@@ -4,9 +4,9 @@
 const API_KEY = "10b626f296dd42cca1d8be206ee4b6a6";
 const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}`;
 
-//********************************* For categories
-async function popular() {
-  const res = await fetch(`${url}&sort=popularity`);
+//****************************************************************** For categories
+async function categories(category) {
+  const res = await fetch(`${url}&sort=${category}`);
   const data = await res.json();
   return data;
 }
@@ -45,26 +45,66 @@ async function lunchRecipe() {
   return data;
 }
 
-async function dinnerRecipe() {}
+async function dinnerRecipe() {
+  
+}
 
-async function desserts() {}
+async function desserts() {
+  const res = await fetch(`${url}&type=dessert`);
+  const data = await res.json();
+  return data;
+}
 
-async function snacks() {}
+async function snacks() {
+  const res = await fetch(`${url}&type=snack`);
+  const data = await res.json();
+  return data;
+}
 
-async function LowCarbRecipe() {}
+async function LowCarbRecipe() {
+  const res = await fetch(`${url}&sort=carb&sortDirection=asc`);
+}
 
 async function ketoRecipe() {}
 
-async function italianRecipe() {}
+async function italianRecipe() {
+  const res = await fetch(`${url}&cuisine=Italian`);
+  const data = await res.json();
+  return data;
+}
 
-async function mexicanRecipe() {}
+async function mexicanRecipe() {
+  const res = await fetch(`${url}&cuisine=Mexican`);
+  const data =- await res.json();
+  return data;
+}
 
-async function chineseRecipe() {}
+async function chineseRecipe() {
+  const res = await fetch(`${url}&cuisine=Chinese`);
+  const data = await res.json();
+  return data;
+}
 
-async function indianRecipe() {}
+async function indianRecipe() {
+  const res = await fetch(`${url}&cuisine=Indian`);
+  const data = await res.json();
+  return data;
+}
 
-async function japaneseRecipe() {}
+async function japaneseRecipe() {
+  const res = await fetch(`${url}&cuisine=Japanese`);
+  const data = await res.json();
+  return data;
+}
 
-async function mediterranianRecipe() {}
+async function mediterranianRecipe() {
+  const res = await fetch(`${url}&cuisine=Mediterranean`);
+  const data = await res.json();
+  return data;
+}
 
-async function americanRecipe() {}
+async function americanRecipe() {
+  const res = await fetch(`${url}&cuisine=American`);
+  const data = await res.json();
+  return data;
+}
