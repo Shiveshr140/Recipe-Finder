@@ -8,13 +8,66 @@ const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}
 async function categories(category) {
   const res = await fetch(`${url}&sort=${category}`);
   const data = await res.json();
-  console.log(data);
   return data;
 }
 
-// console.log(categories("popular"));
+// console.log(popular());
+
+async function cheap() {
+  const res = await fetch(`${url}&sort=price&sortDirection=asc`);
+  const data = await res.json();
+  return data;
+}
+
+async function vegetarian() {
+  const res = await fetch(`${url}&diet=vegetarian`);
+  const data = await res.json();
+  return data;
+}
+
+async function glutenFreen() {
+  const res = await fetch(`${url}&intolerances=gluten`);
+  const data = await res.json();
+  return data;
+}
 
 //***************************************************************** Sidebar Recipes
+
+async function breakfastRecipes() {
+  const res = await fetch(`${url}&type=breakfast`);
+  const data = await res.json();
+  return data;
+}
+
+async function lunchRecipe() {
+  const res = await fetch(`${url}&type=main course`);
+  const data = await res.json();
+  return data;
+}
+
+async function dinnerRecipe() {
+
+}
+
+async function desserts() {
+  const res = await fetch(`${url}&type=dessert`);
+  const data = await res.json();
+  return data;
+}
+
+async function snacks() {
+  const res = await fetch(`${url}&type=snack`);
+  const data = await res.json();
+  return data;
+}
+
+async function LowCarbRecipe() {
+  const res = await fetch(`${url}&sort=carb&sortDirection=asc`);
+  const data = await res.json();
+  return data;
+}
+
+async function ketoRecipe() {}
 
 async function fetchRecipesByCuisine(cuisine) {
   try {
