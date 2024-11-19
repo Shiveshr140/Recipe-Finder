@@ -46,7 +46,7 @@ async function lunchRecipe() {
 }
 
 async function dinnerRecipe() {
-  
+
 }
 
 async function desserts() {
@@ -63,6 +63,8 @@ async function snacks() {
 
 async function LowCarbRecipe() {
   const res = await fetch(`${url}&sort=carb&sortDirection=asc`);
+  const data = await res.json();
+  return data;
 }
 
 async function ketoRecipe() {}
