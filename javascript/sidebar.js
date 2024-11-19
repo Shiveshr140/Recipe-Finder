@@ -1,7 +1,7 @@
 const sidebar = document.querySelector(".sidebar");
 function createSidebarContent() {
   sidebar.innerHTML = `
-       <p> Sidebar </p>
+     
        <div class="sidebar-recipes">
         <a href="index.html" class="sidebar-link"> 
          <img class="logo recipe-logo" src ="./style/assets/recipe-logo.svg" alt="logo" />

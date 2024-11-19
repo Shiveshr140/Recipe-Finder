@@ -9,6 +9,10 @@
   background: linear-gradient(to bottom, #fff5e6, #ffd700);
 }
 
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
 .sidebar p {
   text-align: center;
 }

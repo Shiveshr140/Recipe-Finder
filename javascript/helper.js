@@ -69,44 +69,19 @@ async function LowCarbRecipe() {
 
 async function ketoRecipe() {}
 
-async function italianRecipe() {
-  const res = await fetch(`${url}&cuisine=Italian`);
-  const data = await res.json();
-  return data;
+async function fetchRecipesByCuisine(cuisine) {
+  try {
+    const res = await fetch(`${url}&cuisine=${cuisine}`);
+    if (!res.ok) throw new Error(`Failed to fetch recipes: ${res.status}`);
+    const data = await res.json();
+    console.log(data);
+    return data.results;
+  } catch (err) {
+    console.error(err);
+  }
 }
 
-async function mexicanRecipe() {
-  const res = await fetch(`${url}&cuisine=Mexican`);
-  const data =- await res.json();
-  return data;
-}
-
-async function chineseRecipe() {
-  const res = await fetch(`${url}&cuisine=Chinese`);
-  const data = await res.json();
-  return data;
-}
-
-async function indianRecipe() {
-  const res = await fetch(`${url}&cuisine=Indian`);
-  const data = await res.json();
-  return data;
-}
-
-async function japaneseRecipe() {
-  const res = await fetch(`${url}&cuisine=Japanese`);
-  const data = await res.json();
-  return data;
-}
-
-async function mediterranianRecipe() {
-  const res = await fetch(`${url}&cuisine=Mediterranean`);
-  const data = await res.json();
-  return data;
-}
-
-async function americanRecipe() {
-  const res = await fetch(`${url}&cuisine=American`);
-  const data = await res.json();
-  return data;
-}
+// // Example: Fetch Italian recipes
+// fetchRecipesByCuisine("Lunch Recipes").then((recipes) => {
+//   console.log("Italian Recipes:", recipes);
+// });
