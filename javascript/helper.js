@@ -45,9 +45,7 @@ async function lunchRecipe() {
   return data;
 }
 
-async function dinnerRecipe() {
-
-}
+async function dinnerRecipe() {}
 
 async function desserts() {
   const res = await fetch(`${url}&type=dessert`);
