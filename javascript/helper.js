@@ -81,7 +81,18 @@ async function fetchRecipesByCuisine(cuisine) {
   }
 }
 
-// // Example: Fetch Italian recipes
-// fetchRecipesByCuisine("Lunch Recipes").then((recipes) => {
-//   console.log("Italian Recipes:", recipes);
-// });
+////**************************************************** Discover-more
+
+async function discoverMoreRecipes() {
+  try {
+    const res = await fetch(
+      `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=8`
+    );
+    if (!res.ok) throw new Error(`Failed to fetch recipes: ${res.status}`);
+    const data = await res.json();
+    return data.recipes; // Corrected to match Spoonacular API response
+  } catch (err) {
+    console.error(err);
+    return []; // Return an empty array in case of an error
+  }
+}
