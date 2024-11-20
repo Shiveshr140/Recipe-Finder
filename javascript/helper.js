@@ -82,7 +82,7 @@ async function fetchRecipesByCuisine(cuisine) {
 }
 
 ////**************************************************** Discover-more
-
+//// DO NOT TOUCH THIS
 async function discoverMoreRecipes() {
   try {
     const res = await fetch(
