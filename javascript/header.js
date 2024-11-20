@@ -4,7 +4,7 @@ function createHeaderContent() {
       <div class="header-info">
           <p>
             Find Your Perfect Recipe | Explore thousands of delicious recipes curated just for you. 
-           <a href="#">Discover more</a>
+           <a href="#" class="discover-more">Discover more</a>
          </p>
           <button class="header-info-button">&times;</button>
       </div>

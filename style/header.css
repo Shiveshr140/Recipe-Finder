@@ -193,7 +193,7 @@ nav {
   display: none;
 }
 
-/* modal-window/seasonal */
+/***************************** modal-window/seasonal *************************8*/
 
 .modal-card-header {
   display: flex;
@@ -202,9 +202,13 @@ nav {
   text-align: center;
 }
 
-/* .modal-card-header h1 span {
-  text-align: center;
-} */
+.modal-card-header span {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ff5733;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+}
 
 .close-modal-card {
   position: absolute;
@@ -222,7 +226,8 @@ nav {
 
 .close-modal-card:hover {
   font-size: 20px;
-  background-color: rgb(215, 229, 234);
+  /* background-color: rgb(215, 229, 234); */
+  background-color: #f1b1a2;
 }
 
 .modal-card p {
@@ -237,16 +242,36 @@ nav {
   border-bottom: 0.5px solid black;
 }
 
-.modal-card p a {
+/* .modal-card p a {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   color: #002366;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .modal-card p a:hover {
-  /* color: #001741; */
   color: #ff5733;
   text-decoration: underline;
+} */
+
+.modal-card p a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  color: #002366;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.modal-card p a:hover {
+  color: #ffffff;
+  background-color: #ff5733;
+  text-decoration: none;
+  transform: scale(1.05);
 }
 
 /*************************************** modal-window/Ingredients *************************/
@@ -254,6 +279,16 @@ nav {
 .ingredients-links {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+}
+
+.ingredients-links p:nth-child(2n) {
+  padding-left: 5rem;
+}
+
+/* Target all items in the last row */
+.ingredients-links p:nth-last-child(-n + 2) {
+  border-bottom: none;
 }
 
 /***************************************** modal-window/Healthy-recipes **********************/
