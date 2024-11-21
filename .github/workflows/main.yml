@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Check out the repository
+    # Step 1: Checkout the repository
     - name: Checkout code
       uses: actions/checkout@v2
 
@@ -18,13 +18,16 @@ jobs:
     - name: Install Netlify CLI
       run: npm install -g netlify-cli
 
-    # Step 3: Link directory to your Netlify site
+    # Step 3: Authenticate Netlify CLI (required for linking and deploying)
+    - name: Authenticate with Netlify
+      run: netlify login --token ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      
+    # Step 4: Link the repository to Netlify (no need to specify --site)
     - name: Link to Netlify site
-      run: |
-        netlify link --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      run: netlify link --auth ${{ secrets.NETLIFY_AUTH_TOKEN }}
 
-    # Step 4: Deploy to Netlify
+    # Step 5: Deploy to Netlify
     - name: Deploy to Netlify
-      run: netlify deploy --prod --dir=./ 
+      run: netlify deploy --prod --dir=./  # Deploy your site
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
