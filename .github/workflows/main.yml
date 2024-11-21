@@ -14,12 +14,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # Step 2: Install Netlify CLI (Use npm to install the CLI globally)
+    # Step 2: Install Netlify CLI
     - name: Install Netlify CLI
       run: npm install -g netlify-cli
 
-    # Step 3: Deploy to Netlify
+    # Step 3: Link directory to your Netlify site
+    - name: Link to Netlify site
+      run: |
+        netlify link --site ${{ secrets.NETLIFY_SITE_ID }} --auth ${{ secrets.NETLIFY_AUTH_TOKEN }}
+
+    # Step 4: Deploy to Netlify
     - name: Deploy to Netlify
-      run: netlify deploy --prod --dir=./ # Use the correct directory path if needed
+      run: netlify deploy --prod --dir=./ 
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
