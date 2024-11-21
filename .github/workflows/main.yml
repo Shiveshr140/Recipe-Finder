@@ -3,27 +3,23 @@ name: Deploy Static Site to Netlify
 on:
   push:
     branches:
-      - master # Trigger workflow on push to the master branch
+      - master  # Trigger workflow on push to the master branch
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-    # Step 1: Checkout the repository
-    - name: Checkout code
-      uses: actions/checkout@v2
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    # Step 2: Install Netlify CLI
-    - name: Install Netlify CLI
-      run: npm install -g netlify-cli
+      # Step 2: Install Netlify CLI (Only if not installed globally already)
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
 
-    # Step 3: Link to Netlify site (requires NETLIFY_AUTH_TOKEN)
-    - name: Link to Netlify site
-      run: netlify link --auth ${{ secrets.NETLIFY_AUTH_TOKEN }}
-
-    # Step 4: Deploy to Netlify
-    - name: Deploy to Netlify
-      run: netlify deploy --prod --dir=./
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      # Step 3: Deploy to the Recipe-Finder site using the site ID
+      - name: Deploy to Recipe-Finder Site
+        run: |
+          netlify deploy --prod --dir=./ --site ${{ secrets.NETLIFY_SITE_ID }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
