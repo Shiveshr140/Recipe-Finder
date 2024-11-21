@@ -14,15 +14,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # Step 2: Install dependencies (Only if needed for additional packages like npm for JS)
-    # - name: Install dependencies
-    #   run: |
-    #     npm install
+    # Step 2: Install Netlify CLI (Use npm to install the CLI globally)
+    - name: Install Netlify CLI
+      run: npm install -g netlify-cli
 
     # Step 3: Deploy to Netlify
     - name: Deploy to Netlify
-      run: |
-        curl -sL https://github.com/netlify/cli/releases/download/v3.0.0-beta.10/netlify-cli-linux-x64.tar.gz | tar xz
-        ./netlify-cli deploy --prod --dir=./  
+      run: netlify deploy --prod --dir=./ # Use the correct directory path if needed
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
