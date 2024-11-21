@@ -18,16 +18,12 @@ jobs:
     - name: Install Netlify CLI
       run: npm install -g netlify-cli
 
-    # Step 3: Authenticate Netlify CLI (required for linking and deploying)
-    - name: Authenticate with Netlify
-      run: netlify login --token ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      
-    # Step 4: Link the repository to Netlify (no need to specify --site)
+    # Step 3: Link to Netlify site (requires NETLIFY_AUTH_TOKEN)
     - name: Link to Netlify site
       run: netlify link --auth ${{ secrets.NETLIFY_AUTH_TOKEN }}
 
-    # Step 5: Deploy to Netlify
+    # Step 4: Deploy to Netlify
     - name: Deploy to Netlify
-      run: netlify deploy --prod --dir=./  # Deploy your site
+      run: netlify deploy --prod --dir=./
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
