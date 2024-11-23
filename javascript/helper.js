@@ -96,3 +96,22 @@ async function discoverMoreRecipes() {
     return []; // Return an empty array in case of an error
   }
 }
+/// Sidebar Functions Handle
+/// DO NOT TOUCH THIS
+async function fetchRecipes(category) {
+  try {
+    const categoryLowerCase = category.toLowerCase();
+
+    const endpoint = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${categoryLowerCase}&number=20`;
+
+    const res = await fetch(endpoint);
+
+    if (!res.ok) throw new Error(`Failed to fetch recipes for ${categoryLowerCase}: ${res.status}`);
+    const data = await res.json();
+    return data.results;
+  } catch (err) {
+    console.error(`Error fetching recipes for ${category}:`, err.message);
+    return [];
+  }
+}
+
