@@ -1,14 +1,16 @@
 ////********************************** Modal windows for nav link
 
 // create function to show/close modal window common for cards those have links
-function createModal(triggerElement, contentHtml) {
+function createModal(triggerElement, contentHtml, modalId) {
   // Create modal elements
   const overlay = document.createElement("div");
   const modal = document.createElement("div");
 
-  // Add necessary classes to the modal and overlay
+  // Add necessary classes to the modal and overlay, ids are also added we need target unique modal specially in case of handling links click in individual modals
   overlay.classList.add("overlay", "hidden");
+  overlay.id = `overlay-${modalId}`;
   modal.classList.add("modal-card", "hidden");
+  modal.id = `modal-${modalId}`;
 
   // Append modal and overlay to the body
   document.body.appendChild(overlay);
@@ -18,16 +20,20 @@ function createModal(triggerElement, contentHtml) {
   modal.innerHTML = contentHtml;
 
   // Show the modal
-  triggerElement.addEventListener("click", () => {
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-  });
+  if (triggerElement) {
+    triggerElement.addEventListener("click", () => {
+      modal.classList.remove("hidden");
+      overlay.classList.remove("hidden");
+    });
+  }
 
   // Close modal on overlay click or close button click
-  overlay.addEventListener("click", () => {
-    overlay.classList.add("hidden");
-    modal.classList.add("hidden");
-  });
+  if (overlay) {
+    overlay.addEventListener("click", () => {
+      overlay.classList.add("hidden");
+      modal.classList.add("hidden");
+    });
+  }
 
   const closeButton = modal.querySelector(".close-modal-card");
   if (closeButton) {
@@ -45,6 +51,17 @@ function createModal(triggerElement, contentHtml) {
       modal.classList.add("hidden");
     });
   }
+}
+
+// Utility function to add link click listeners
+function addLinkClickListeners(modal, overlay) {
+  const links = modal.querySelectorAll(".recipe-link");
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      overlay.classList.add("hidden");
+      modal.classList.add("hidden");
+    });
+  });
 }
 
 ////************************************************ Healthy Recipes
@@ -68,7 +85,6 @@ const healthyRecipesArray = [
   "Homemade Vegetable Soup",
   "Cucumber and Hummus Wrap",
   "Mango and Spinach Smoothie",
-  "Baked Turkey Meatballs",
   "Cauliflower Rice Bowl",
 ];
 
@@ -86,7 +102,7 @@ const healthyRecipiesContent = `
 
 // seasonal recipes link
 const healthyRecipesLink = document.querySelector(".nav-healthy-recipies");
-createModal(healthyRecipesLink, healthyRecipiesContent);
+createModal(healthyRecipesLink, healthyRecipiesContent, "healthyRecipes");
 
 function healthyRecipesShow() {
   const healthyRecipesDiv = document.querySelector(".healthy-recipes-links");
@@ -97,6 +113,11 @@ function healthyRecipesShow() {
     `;
   }
   healthyRecipesDiv.innerHTML = innerContent;
+
+  // Re-attach link click listeners
+  const modal = document.querySelector("#modal-healthyRecipes");
+  const overlay = document.querySelector("#overlay-healthyRecipes");
+  addLinkClickListeners(modal, overlay);
 }
 
 healthyRecipesShow();
@@ -137,40 +158,60 @@ const ingredientsContent = `
 
 // Ingredient  link
 const ingredientLink = document.querySelector(".nav-ingredients");
-createModal(ingredientLink, ingredientsContent);
+createModal(ingredientLink, ingredientsContent, "ingredients");
 
 function ingredientsShow() {
   const ingredientsDiv = document.querySelector(".ingredients-links");
   let innerContent = ``;
   for (let item of ingredientsArray) {
     innerContent += `
-    <p> 👉 <a href="#"> ${item} </a>
+    <p> 👉 <a href="#" class="recipe-link"> ${item} </a>
     `;
   }
   ingredientsDiv.innerHTML = innerContent;
+
+  // Re-attach link click listeners
+  const modal = document.querySelector("#modal-ingredients");
+  const overlay = document.querySelector("#overlay-ingredients");
+  addLinkClickListeners(modal, overlay);
 }
 
 ingredientsShow();
 
 ////********************************************** Seasonal
 
-// Modal content for seasonal
 const seasonalContent = `
-  <div class="modal-card-header">
+  <div class="modal-card-header seasonal-modal">
     <h3>
       <span>Seasonal Recipes</span>
       <button class="close-modal-card">&times;</button>
     </h3>
+    <div class="modal-card-body seasonal-links">  </div>
  </div>
-  <p>👉 <a href="#"> Summer </a> </p>
-  <p>👉 <a href="#"> Autumn (Fall) </a> </p>
-  <p>👉 <a href="#"> Winter </a> </p>
-  <p>👉 <a href="#"> Diwali recipes </a> </p>
-  <p>👉 <a href="#"> Ramadan and Eid recipes  </a> </p>
-  <p>👉 <a href="#">  Easter recipes </a> </p>
-  <p>👉 <a href="#">  Christmas and New year recipes </a> </p>
+`;
+
+// seasonal recipes link
+const seasonalLink = document.querySelector(".nav-seasonal");
+createModal(seasonalLink, seasonalContent, "seasonal");
+
+// Modal content for seasonal
+function seasonalShow() {
+  const seasonalDiv = document.querySelector(".seasonal-links");
+  seasonalDiv.innerHTML = `<p>👉 <a href="#" class="recipe-link"> Summer </a> </p>
+  <p>👉 <a href="#" class="recipe-link"> Autumn (Fall) </a> </p>
+  <p>👉 <a href="#" class="recipe-link"> Winter </a> </p>
+  <p>👉 <a href="#" class="recipe-link"> Diwali recipes </a> </p>
+  <p>👉 <a href="#" class="recipe-link"> Ramadan and Eid recipes  </a> </p>
+  <p>👉 <a href="#" class="recipe-link">  Easter recipes </a> </p>
+  <p>👉 <a href="#" class="recipe-link">  Christmas and New year recipes </a> </p>
   `;
 
-// healthy recipes link
-const seasonalLink = document.querySelector(".nav-seasonal");
-createModal(seasonalLink, seasonalContent);
+  //Re-attach link click listeners
+  const modal = document.querySelector("#modal-seasonal");
+  const overlay = document.querySelector("#overlay-seasonal");
+  addLinkClickListeners(modal, overlay);
+}
+
+seasonalShow();
+
+module.exports = { createModal };

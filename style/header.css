@@ -132,27 +132,6 @@ nav {
 
 /*********************************************** Modal window styling for nav links *******************************/
 
-/* .modal-card {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  bottom: 20%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(to right, #87ceeb, #adff2f);
-  border: 0.2px solid black;
-  z-index: 1000;
-  padding: 0.5rem 1rem 1rem 1rem;
-  backdrop-filter: blur(4px);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  max-height: 80vh;
-  height: 600px;
-  width: 35%;
-  border-radius: 4px;
-} */
-
 .modal-card {
   position: fixed;
   top: 50%;
@@ -167,16 +146,13 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-
-  /* Responsive dynamic sizing */
   max-height: 80vh;
   max-width: 90%;
-  min-height: 200px; /* Ensure a minimum size */
+  min-height: 200px;
   min-width: 500px;
-  width: auto; /* Adjust width based on content */
-
+  width: auto;
   border-radius: 4px;
-  overflow-y: auto; /* Enable scrolling for overflow content */
+  overflow-y: auto;
 }
 
 .overlay {
@@ -291,4 +267,11 @@ nav {
   border-bottom: none;
 }
 
-/***************************************** modal-window/Healthy-recipes **********************/
+/***************************************** modal-window/Seasonal-recipes **********************/
+.seasonal-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: -1rem;
+  margin-right: -1rem;
+}

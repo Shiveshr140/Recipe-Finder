@@ -1,4 +1,4 @@
-const main = document.querySelector(".main");
+let main = document.querySelector(".main");
 const defaultMainHeader = document.createElement("div");
 defaultMainHeader.classList.add("default-main-header");
 main.appendChild(defaultMainHeader);

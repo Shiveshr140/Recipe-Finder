@@ -1,6 +1,7 @@
 function createHeaderContent() {
   const header = document.querySelector(".header");
-  header.innerHTML = `
+  if (header) {
+    header.innerHTML = `
       <div class="header-info">
           <p>
             Find Your Perfect Recipe | Explore thousands of delicious recipes curated just for you. 
@@ -14,10 +15,10 @@ function createHeaderContent() {
           <div class="dropdown">
               <select>
                   <option value="" selected disabled>Categories</option>
-                  <option value="popular">💗 Popular</option>
-                  <option value="cheap">💲Cheap</option>
-                  <option value="vegetarian">🍅 Vegetarian</option>
-                  <option value="gluten free">🥗 Gluten free</option>
+                  <option value="popular" class="recipe-link">💗 Popular</option>
+                  <option value="cheap" class="recipe-link">💲Cheap</option>
+                  <option value="vegetarian" class="recipe-link">🍅 Vegetarian</option>
+                  <option value="gluten free" class="recipe-link">🥗 Gluten free</option>
               </select>
           </div>
           <input class="search" placeholder="Start searching...." />
@@ -30,6 +31,19 @@ function createHeaderContent() {
       </nav>
       
       `;
+  }
 }
 
 createHeaderContent();
+
+function inputFocus() {
+  const searchInput = document.querySelector(".search");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    searchInput.focus();
+  });
+}
+
+inputFocus();
+
+module.exports = { createHeaderContent, inputFocus };
