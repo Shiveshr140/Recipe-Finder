@@ -11,26 +11,26 @@ function displaySidebarRecipes() {
 
         // Update main content area with new recipes
         main.innerHTML = `
-        <div class="sidebar-recipe-header">
-          <div class="sidebar-recipe-top"> 
+        <div class="comman-recipe-header">
+          <div class="comman-recipe-top"> 
             <h2>${category} Recipes</h2>
-          <button class="sidebar-back">Back</button>
+          <button class="comman-back">Back</button>
           </div>
-          <div class="sidebar-recipes-container"></div>
+          <div class="comman-recipes-container"></div>
         </div>
       `;
 
         // Fetch and display recipes for the selected category
         await displaySidebarRecipesContent(category);
 
-        const backButton = main.querySelector(".sidebar-back");
+        const backButton = main.querySelector(".comman-back");
         backButton.addEventListener("click", () => {
           // Restore the original content
           main.innerHTML = originalContent;
 
           // Reattach the event listener to "Sidebar Recipe Link"
           const restoredSidebarLink = main.querySelector(
-            ".sidebar-recipes-link"
+            ".comman-recipes-link"
           );
           if (restoredSidebarLink) {
             restoredSidebarLink.addEventListener("click", async () => {
@@ -48,7 +48,7 @@ async function displaySidebarRecipesContent(category) {
   try {
     const recipes = await fetchSidebarRecipes(category); // Fetch recipes by category
     const recipesContainer = document.querySelector(
-      ".sidebar-recipes-container"
+      ".comman-recipes-container"
     );
 
     // Clear any existing content in the container
@@ -63,32 +63,32 @@ async function displaySidebarRecipesContent(category) {
     // Render recipe cards with details
     recipes.forEach((recipe) => {
       const recipeCard = document.createElement("div");
-      recipeCard.classList.add("sidebar-recipe-card");
+      recipeCard.classList.add("comman-recipe-card");
 
       // Populate recipe details
       recipeCard.innerHTML = `
         <img src="${recipe.image}" alt="${
         recipe.title
-      }" class="sidebar-recipe-image" />
+      }" class="comman-recipe-image" />
         <div class="recipe-details">
-          <h3 class="sidebar-recipe-title">${recipe.title}</h3>
-          <p class="recipe-cooking-time"><strong>Cooking Time:</strong> ${
+          <h3 class="comman-recipe-title">${recipe.title}</h3>
+          <p class=comman-cooking-time"><strong>Cooking Time:</strong> ${
             recipe.readyInMinutes || "N/A"
           } mins</p>
-          <p class="recipe-difficulty"><strong>HealthScore:</strong> ${
+          <p class=comman-difficulty"><strong>HealthScore:</strong> ${
             recipe.healthScore
           }</p>
-          <p class="recipe-ratings"><strong>Ratings:</strong> ${
+          <p class=comman-ratings"><strong>Ratings:</strong> ${
             recipe.aggregateLikes || "N/A"
           }</p>
-          <div class="sidebar-recipe-summary"> 
+          <div class="comman-recipe-summary"> 
              <p> 
              ${recipe.summary}
              </p>
           </div>
           <a href="${
             recipe.sourceUrl
-          }" target="_blank" class="sidebar-recipe-link">View Full Recipe</a>
+          }" target="_blank" class="comman-recipe-link">View Full Recipe</a>
         </div>
       `;
 
@@ -97,7 +97,7 @@ async function displaySidebarRecipesContent(category) {
   } catch (err) {
     console.error("Error displaying recipes:", err);
     document.querySelector(
-      ".sidebar-recipes-container"
+      ".comman-recipes-container"
     ).innerHTML = `<p>Failed to load recipes. Please try again later.</p>`;
   }
 }

@@ -1,4 +1,4 @@
-.seasonal-recipe-header {
+.comman-recipe-header {
   text-align: center;
   padding: 20px;
   background: linear-gradient(to right, #ff7e5f, #feb47b);
@@ -10,14 +10,14 @@
   max-width: 900px;
 }
 
-.seasonal-recipe-top h2 {
+.comman-recipe-top h2 {
   font-size: 1.5rem;
   text-decoration: none;
   color: white;
   font-weight: bold;
 }
 
-.seasonal-recipe-top {
+.comman-recipe-top {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -25,12 +25,12 @@
   gap: 0.5rem;
 }
 
-.healthy-recipe-top h2:hover {
+.comman-recipe-top h2:hover {
   color: #ffe3d5;
   text-decoration: underline;
 }
 
-.seasonal-recipe-top button.seasonal-back {
+.comman-recipe-top button.comman-back {
   margin-top: 10px;
   background-color: #ff7e5f;
   border: none;
@@ -42,16 +42,16 @@
   transition: background-color 0.3s ease;
 }
 
-.seasonal-recipe-header button.seasonal-back:hover {
+.comman-recipe-header button.comman-back:hover {
   background-color: #feb47b;
 }
 
-.seasonal-recipes-container {
+.comman-recipes-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.seasonal-recipe-card {
+.comman-recipe-card {
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -62,51 +62,51 @@
   max-width: 400px;
 }
 
-.seasonal-recipe-card img {
+.comman-recipe-card img {
   width: 100%;
   border-radius: 8px;
   margin-bottom: 0.5rem;
 }
 
-.seasonal-recipe-title {
+.comman-recipe-title {
   font-size: 1.2rem;
   color: #333;
   margin-bottom: 0.5rem;
 }
 
-.seasonal-recipe-summary {
+.comman-recipe-summary {
   font-size: 0.9rem;
   color: #666;
   margin-bottom: 1rem;
 }
 
-.seasonal-recipe-summary a {
+.comman-recipe-summary a {
   color: inherit;
   font-size: inherit;
   text-decoration: underline;
 }
 
-.seasonal-recipe-summary a:hover {
+.comman-recipe-summary a:hover {
   color: rgb(41, 39, 39);
 }
 
-.seasonal-cooking-time {
+.comman-cooking-time {
   color: black;
 }
 
-.seasonal-difficulty {
+.comman-difficulty {
   color: black;
 }
 
-.seasonal-ratings {
+.comman-ratings {
   color: black;
 }
 
-.seasonal-nutrition {
+.comman-nutrition {
   color: black;
 }
 
-.seasonal-recipe-link {
+.comman-recipe-link {
   text-decoration: none;
   color: #ffd700;
   font-weight: bold;
@@ -117,7 +117,7 @@
   transition: background 0.3s ease-in-out;
 }
 
-.seasonal-recipe-link:hover {
+.comman-recipe-link:hover {
   background: #ff7e5f;
   color: #fff;
 }

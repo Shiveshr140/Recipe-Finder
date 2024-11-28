@@ -1,83 +1,37 @@
 //  return array/obj from these function so that later we can use these
 // arr/obj should have [{"id": , "title": , "image": "", "summary": "", "instructions": "" },]  or other necessary things if availabele
 
+// apikey 1
 const API_KEY = "10b626f296dd42cca1d8be206ee4b6a6";
+
+// apikey 2
+// const API_KEY = "ebc06cd8aab14b2d8cb6e720691d14a5";
 const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}`;
 
 //****************************************************************** For categories
-// async function categories(category) {
-//   const res = await fetch(`${url}&sort=${category}`);
-//   const data = await res.json();
-//   return data;
-// }
+async function categoriesRecipes(category) {
+  try {
+    const categoryLowerCase = category.toLowerCase();
 
-// // console.log(popular());
+    const endpoint = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&sort=${categoryLowerCase}&number=20&addRecipeInformation=true`;
 
-// async function cheap() {
-//   const res = await fetch(`${url}&sort=price&sortDirection=asc`);
-//   const data = await res.json();
-//   return data;
-// }
+    const res = await fetch(endpoint);
 
-// async function vegetarian() {
-//   const res = await fetch(`${url}&diet=vegetarian`);
-//   const data = await res.json();
-//   return data;
-// }
+    if (!res.ok)
+      throw new Error(
+        `Failed to fetch recipes for ${categoryLowerCase}: ${res.status}`
+      );
+    const data = await res.json();
+    console.log(`${category}`, data.results);
 
-// async function glutenFreen() {
-//   const res = await fetch(`${url}&intolerances=gluten`);
-//   const data = await res.json();
-//   return data;
-// }
+    return data.results;
+  } catch (err) {
+    console.error(`Error fetching recipes for ${category}:`, err.message);
+    return [];
+  }
+}
 
-// //***************************************************************** Sidebar Recipes
-
-// async function breakfastRecipes() {
-//   const res = await fetch(`${url}&type=breakfast`);
-//   const data = await res.json();
-//   return data;
-// }
-
-// async function lunchRecipe() {
-//   const res = await fetch(`${url}&type=main course`);
-//   const data = await res.json();
-//   return data;
-// }
-
-// async function dinnerRecipe() {}
-
-// async function desserts() {
-//   const res = await fetch(`${url}&type=dessert`);
-//   const data = await res.json();
-//   return data;
-// }
-
-// async function snacks() {
-//   const res = await fetch(`${url}&type=snack`);
-//   const data = await res.json();
-//   return data;
-// }
-
-// async function LowCarbRecipe() {
-//   const res = await fetch(`${url}&sort=carb&sortDirection=asc`);
-//   const data = await res.json();
-//   return data;
-// }
-
-// async function ketoRecipe() {}
-
-// async function fetchRecipesByCuisine(cuisine) {
-//   try {
-//     const res = await fetch(`${url}&cuisine=${cuisine}`);
-//     if (!res.ok) throw new Error(`Failed to fetch recipes: ${res.status}`);
-//     const data = await res.json();
-//     console.log(data);
-//     return data.results;
-//   } catch (err) {
-//     console.error(err);
-//   }
-// }
+// console.log(categoriesRecipes("cheap"));
 
 ////**************************************************** Discover-more
 //// DO NOT TOUCH THIS
@@ -149,40 +103,10 @@ async function HealthyRecipeDetailsFromAPI(recipeName) {
 
 ////********************* Seasonal
 
-// async function SeasonalRecipeDetailsFromAPI(category) {
-//   try {
-//     const categoryLowerCase = category.toLowerCase();
-//     const endpoint = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${categoryLowerCase}&number=20&addRecipeInformation=true`;
-
-//     const res = await fetch(endpoint);
-
-//     if (!res.ok) {
-//       throw new Error(`Failed to fetch recipes for ${category}: ${res.status}`);
-//     }
-
-//     const data = await res.json();
-//     console.log(`${category}`, data.results);
-
-//     return data.results;
-//   } catch (err) {
-//     console.error(`Error fetching recipes for ${category}:`, err.message);
-//     return null;
-//   }
-// }
-
 async function SeasonalRecipeDetailsFromAPI(category) {
   try {
-    // Map dropdown categories to API filters
-    const categoryFilters = {
-      vegetarian: "&diet=vegetarian",
-      cheap: "&maxPricePerServing=10",
-      popular: "&sort=popularity",
-      "gluten free": "&intolerances=gluten",
-    };
-
-    const apiFilter = categoryFilters[category.toLowerCase()] || "";
-
-    const endpoint = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${category}&number=20${apiFilter}&addRecipeInformation=true`;
+    const categoryLowerCase = category.toLowerCase();
+    const endpoint = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&festive=${categoryLowerCase}&number=20&addRecipeInformation=true`;
 
     const res = await fetch(endpoint);
 
@@ -196,36 +120,57 @@ async function SeasonalRecipeDetailsFromAPI(category) {
     return data.results;
   } catch (err) {
     console.error(`Error fetching recipes for ${category}:`, err.message);
-    return [];
+    return null;
   }
 }
 
-// console.log(SeasonalRecipeDetailsFromAPI("Summer"));
+// console.log(SeasonalRecipeDetailsFromAPI("ramadan and eid"));
 
-////********************** Ingredients
+////********************** Ingredients and search bar
 
-// // Fetch recipe details for a single ingredient
-// async function IngredientsRecipeDetailsFromAPI(ingredient) {
-//   try {
-//     const ingredientLowerCase = ingredient.toLowerCase();
-//     const endpoint = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${ingredientLowerCase}&number=20&addRecipeInformation=true`;
+// Fetch recipe details for a single ingredient
+async function IngredientsRecipeDetailsFromAPI(ingredient) {
+  try {
+    const ingredientLowerCase = ingredient.toLowerCase();
+    const endpoint = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${ingredientLowerCase}&number=20&addRecipeInformation=true`;
 
-//     const res = await fetch(endpoint);
+    const res = await fetch(endpoint);
 
-//     if (!res.ok) {
-//       throw new Error(
-//         `Failed to fetch recipes for ${ingredient}: ${res.status}`
-//       );
-//     }
+    if (!res.ok) {
+      throw new Error(
+        `Failed to fetch recipes for ${ingredient}: ${res.status}`
+      );
+    }
 
-//     const data = await res.json();
-//     console.log(`Recipes for ${ingredient}:`, data.results);
+    const data = await res.json();
+    console.log(`Recipes for ${ingredient}:`, data.results);
 
-//     return data.results;
-//   } catch (err) {
-//     console.error(`Error fetching recipes for ${ingredient}:`, err.message);
-//     return null;
-//   }
-// }
+    return data.results;
+  } catch (err) {
+    console.error(`Error fetching recipes for ${ingredient}:`, err.message);
+    return null;
+  }
+}
 
 // console.log(IngredientsRecipeDetailsFromAPI("Tomato"));
+
+async function SearchRecipeDetailsFromAPI(query, page = 0) {
+  try {
+    const offset = page * 10;
+    const endpoint = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query=${query}&offset=${offset}&number=10&addRecipeInformation=true`;
+
+    const res = await fetch(endpoint);
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch recipes for ${query}: ${res.status}`);
+    }
+
+    const data = await res.json();
+    console.log(`Recipes for "${query}" (Page ${page + 1}):`, data.results);
+
+    return data.results;
+  } catch (err) {
+    console.error(`Error fetching recipes for "${query}":`, err.message);
+    return [];
+  }
+}

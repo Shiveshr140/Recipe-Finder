@@ -109,7 +109,7 @@ function healthyRecipesShow() {
   let innerContent = ``;
   for (let item of healthyRecipesArray) {
     innerContent += `
-    <p> 👉 <a href="#" class="recipe-link"> ${item} </a>
+    <p> 👉 <a href="#" class="recipe-link healthy-link-item"> ${item} </a>
     `;
   }
   healthyRecipesDiv.innerHTML = innerContent;
@@ -165,7 +165,7 @@ function ingredientsShow() {
   let innerContent = ``;
   for (let item of ingredientsArray) {
     innerContent += `
-    <p> 👉 <a href="#" class="recipe-link"> ${item} </a>
+    <p> 👉 <a href="#" class="recipe-link ingredient-links-item"> ${item} </a>
     `;
   }
   ingredientsDiv.innerHTML = innerContent;
@@ -197,13 +197,13 @@ createModal(seasonalLink, seasonalContent, "seasonal");
 // Modal content for seasonal
 function seasonalShow() {
   const seasonalDiv = document.querySelector(".seasonal-links");
-  seasonalDiv.innerHTML = `<p>👉 <a href="#" class="recipe-link"> Summer </a> </p>
-  <p>👉 <a href="#" class="recipe-link"> Autumn (Fall) </a> </p>
-  <p>👉 <a href="#" class="recipe-link"> Winter </a> </p>
-  <p>👉 <a href="#" class="recipe-link"> Diwali recipes </a> </p>
-  <p>👉 <a href="#" class="recipe-link"> Ramadan and Eid recipes  </a> </p>
-  <p>👉 <a href="#" class="recipe-link">  Easter recipes </a> </p>
-  <p>👉 <a href="#" class="recipe-link">  Christmas and New year recipes </a> </p>
+  seasonalDiv.innerHTML = `<p>👉 <a href="#" class="recipe-link seasonal-link-item"> Summer </a> </p>
+  <p>👉 <a href="#" class="recipe-link seasonal-link-item"> Autumn  </a> </p>
+  <p>👉 <a href="#" class="recipe-link seasonal-link-item"> Winter </a> </p>
+  <p>👉 <a href="#" class="recipe-link seasonal-link-item"> Diwali  </a> </p>
+  <p>👉 <a href="#" class="recipe-link seasonal-link-item"> Ramadan and Eid   </a> </p>
+  <p>👉 <a href="#" class="recipe-link seasonal-link-item">  Easter  </a> </p>
+  <p>👉 <a href="#" class="recipe-link seasonal-link-item">  Christmas and New year  </a> </p>
   `;
 
   //Re-attach link click listeners

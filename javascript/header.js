@@ -15,13 +15,13 @@ function createHeaderContent() {
           <div class="dropdown">
               <select>
                   <option value="" selected disabled>Categories</option>
-                  <option value="popular" class="recipe-link">💗 Popular</option>
-                  <option value="cheap" class="recipe-link">💲Cheap</option>
-                  <option value="vegetarian" class="recipe-link">🍅 Vegetarian</option>
-                  <option value="gluten free" class="recipe-link">🥗 Gluten free</option>
+                  <option value="popular" class="category-link">💗 Popular</option>
+                  <option value="cheap" class="category-link">💲Cheap</option>
+                  <option value="vegetarian" class="category-link">🍅 Vegetarian</option>
+                  <option value="gluten free" class="category-link">🥗 Gluten free</option>
               </select>
           </div>
-          <input class="search" placeholder="Start searching...." />
+          <input class="search" placeholder="Start searching...."  name="search"/>
         </div>
       <div class="nav-links"> 
         <a href="#" class="nav-healthy-recipies nav-link"> Healthy recipes </a>
