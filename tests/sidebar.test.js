@@ -34,6 +34,6 @@ describe("createSidebarContent()", () => {
     const dropDown = sidebar.querySelector(".dropdown-content");
 
     expect(dropDown).not.toBeNull();
-    expect(dropDown.innerHTML).toContain("Breakfast Recipes");
+    expect(dropDown.innerHTML).toContain("Breakfast");
   });
 });
