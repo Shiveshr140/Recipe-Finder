@@ -121,3 +121,40 @@
   background: #ff7e5f;
   color: #fff;
 }
+
+/****************************************** Media Queries  */
+
+@media screen and (max-width: 720px) and (min-width: 500px) {
+  .comman-recipes-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+  }
+  .comman-recipe-card {
+    padding: 1rem;
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .comman-recipes-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+  }
+
+  .comman-recipe-card {
+    margin: 1rem;
+    padding: 1rem;
+    max-width: 400px;
+  }
+
+  .comman-recipe-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .comman-recipe-summary {
+    font-size: 0.8rem;
+  }
+}

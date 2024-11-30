@@ -41,6 +41,7 @@
 .discover-recipes-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
 }
 
 .discover-recipe-card {
@@ -96,4 +97,43 @@
 .discover-recipe-link:hover {
   background: #ff7e5f;
   color: #fff;
+}
+
+/********************************************** Media Queries  */
+
+@media screen and (max-width: 720px) and (min-width: 500px) {
+  .discover-recipes-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+  }
+
+  .discover-recipe-card {
+    margin: 1rem;
+    padding: 1rem;
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .discover-recipes-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+  }
+
+  .discover-recipe-card {
+    margin: 1rem;
+    padding: 1rem;
+    max-width: 400px;
+  }
+
+  .discover-recipe-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .discover-recipe-summary {
+    font-size: 0.8rem;
+  }
 }

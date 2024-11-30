@@ -7,9 +7,6 @@
 
 .header-info {
   position: relative;
-  /* background-color: #5022c3; */
-  /* background-color: #ffa500; */
-  /* background-color: #ffa500; */
   background: linear-gradient(to right, #adff2f, #87ceeb);
   text-align: center;
   padding: 1rem 1rem;
@@ -20,9 +17,8 @@
 }
 
 .header-info p {
-  /* color: whitesmoke; */
   color: black;
-  /* font-weight: bold; */
+  font-size: 1em;
 }
 
 .header-info p a {
@@ -39,12 +35,9 @@
   top: 13px;
   right: 1rem;
   font-size: 20px;
-  /* color: #f7f7f7; */
   color: black;
   cursor: pointer;
   border: none;
-  /* background-color: #5022c3; */
-  /* background-color: #ffa500; */
   background-color: transparent;
   transition: background-color 0.3s ease-in;
   padding-left: 0.3rem;
@@ -122,12 +115,14 @@ nav {
   display: flex;
   align-items: center;
   gap: 0.7rem;
+  font-size: 1em;
 }
 
 .nav-link {
   font-weight: bold;
   color: inherit;
   text-decoration: none;
+  font-size: inherit;
 }
 
 /*********************************************** Modal window styling for nav links *******************************/
@@ -218,18 +213,6 @@ nav {
   border-bottom: 0.5px solid black;
 }
 
-/* .modal-card p a {
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  color: #002366;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.modal-card p a:hover {
-  color: #ff5733;
-  text-decoration: underline;
-} */
-
 .modal-card p a {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -274,4 +257,296 @@ nav {
   justify-content: flex-start;
   margin-left: -1rem;
   margin-right: -1rem;
+}
+
+/************************************** Media queries  ***********************************/
+
+@media screen and (max-width: 1170px) and (min-width: 950px) {
+  nav {
+    padding: 1rem 1rem 1rem 1rem;
+  }
+
+  .nav-logo-cat-input {
+    gap: 0.5rem;
+  }
+
+  .nav-links {
+    gap: 0.4rem;
+    font-size: 0.9em;
+  }
+
+  .search {
+    width: 400px;
+    padding: 0.3rem 0.3rem;
+  }
+}
+
+@media screen and (max-width: 950px) and (min-width: 800px) {
+  nav {
+    padding: 1rem 1rem 1rem 0.7rem;
+  }
+
+  .nav-logo-cat-input {
+    gap: 0.4rem;
+  }
+
+  .nav-links {
+    gap: 0.3rem;
+    font-size: 0.8em;
+  }
+
+  .search {
+    width: 300px;
+    padding: 0.2rem 0.2rem;
+  }
+}
+
+@media screen and (max-width: 800px) and (min-width: 650px) {
+  nav {
+    padding: 1rem 0.5rem 1rem 0.5rem;
+  }
+
+  .nav-logo-cat-input {
+    gap: 0.2rem;
+  }
+
+  .nav-links {
+    gap: 0.2rem;
+    font-size: 0.75em;
+  }
+
+  .search {
+    width: 200px;
+    padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+  }
+
+  .ingreedy {
+    font-size: 0.8em;
+  }
+
+  .dropdown select {
+    font-size: 0.75em;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  nav {
+    padding: 0.7rem 0.3rem 1rem 0.3rem;
+  }
+
+  .nav-logo-cat-input {
+    gap: 0.1rem;
+  }
+
+  .nav-links {
+    gap: 0.1rem;
+    font-size: 0.65em;
+  }
+
+  .search {
+    width: 180px;
+    padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+  }
+
+  .ingreedy {
+    font-size: 0.75em;
+  }
+
+  .dropdown select {
+    font-size: 0.65em;
+  }
+}
+
+@media screen and (max-width: 560px) and (min-width: 450px) {
+  nav {
+    padding: 0.7rem 0.2rem 1rem 0.2rem;
+  }
+
+  .nav-logo-cat-input {
+    gap: 0.3rem;
+  }
+
+  .nav-links {
+    gap: 0.1rem;
+    font-size: 0.65em;
+  }
+
+  .search {
+    width: 160px;
+    padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+  }
+
+  .search::placeholder {
+    color: grey;
+    font-weight: 200;
+    font-size: x-small;
+  }
+
+  .ingreedy {
+    font-size: 0.7em;
+  }
+
+  .dropdown select {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  nav {
+    padding: 0.7rem 0.2rem 1rem 0.2rem;
+  }
+
+  .nav-logo-cat-input {
+    gap: 0.3rem;
+  }
+
+  .nav-links {
+    gap: 0.1rem;
+    font-size: 0.65em;
+  }
+
+  .search {
+    width: 160px;
+    padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+  }
+
+  .search::placeholder {
+    color: grey;
+    font-weight: 300;
+    font-size: x-small;
+  }
+
+  .ingreedy {
+    font-size: 0.7em;
+  }
+
+  .dropdown select {
+    display: none;
+  }
+
+  .nav-ingredients {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  nav {
+    padding: 0.7rem 0.2rem 1rem 0.23rem;
+  }
+
+  .nav-logo-cat-input {
+    gap: 0.2rem;
+  }
+
+  .nav-links {
+    gap: 0.1rem;
+    font-size: 0.6em;
+  }
+
+  .search {
+    width: 140px;
+    padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+  }
+
+  .ingreedy {
+    font-size: 0.6em;
+  }
+
+  .dropdown select {
+    display: none;
+  }
+
+  .nav-ingredients {
+    display: none;
+  }
+}
+
+/* **************** */
+
+@media screen and (max-width: 950px) {
+  .header-info p {
+    color: black;
+    font-size: 0.9em;
+  }
+
+  .header-info p a {
+    color: inherit;
+    font-size: 0.85em;
+  }
+}
+
+@media screen and (max-width: 730px) and (min-width: 560px) {
+  .header-info {
+    position: relative;
+    background: linear-gradient(to right, #adff2f, #87ceeb);
+    text-align: center;
+    padding: 1rem 0.3rem;
+  }
+
+  .header-info p {
+    color: black;
+    font-size: 0.7em;
+  }
+
+  .header-info p a {
+    color: inherit;
+    font-size: 0.67em;
+  }
+}
+
+@media screen and (max-width: 560px) and (min-width: 470px) {
+  .header-info {
+    position: relative;
+    background: linear-gradient(to right, #adff2f, #87ceeb);
+    text-align: center;
+    padding: 1rem 0.2rem;
+  }
+
+  .header-info p {
+    color: black;
+    font-size: 0.65em;
+    text-align: start;
+  }
+
+  .header-info p a {
+    color: inherit;
+    font-size: 0.6em;
+  }
+
+  .header-info button {
+    position: absolute;
+    top: 13px;
+    right: 0.5rem;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .header-info {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0.2rem;
+  }
+
+  .header-info p {
+    color: black;
+    font-size: 0.65em;
+  }
+
+  .header-info p a {
+    text-align: center;
+    display: block;
+    color: inherit;
+    font-size: 0.6em;
+  }
+
+  .header-info button {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    font-size: 15px;
+    align-self: center;
+  }
 }
