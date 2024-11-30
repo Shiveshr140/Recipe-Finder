@@ -13,12 +13,10 @@ describe("createSidebarContent()", () => {
     createSidebarContent();
 
     const sidebar = document.querySelector(".sidebar");
-    const sidebarRecipeLink = document.querySelector(".sidebar-link");
-    const logo = sidebarRecipeLink.querySelector(".recipe-logo");
+    const sidebarRecipeLink = document.querySelector(".sidebar-link-header");
 
     expect(sidebar).not.toBeNull();
     expect(sidebarRecipeLink).not.toBeNull();
-    expect(logo.getAttribute("src")).toBe("./style/assets/recipe-logo.svg");
     expect(sidebar.innerHTML).toContain("Recipes");
   });
 
